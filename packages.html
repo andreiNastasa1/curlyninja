@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Packages | Curly Ninja Production</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+
+/* ---- PACKAGES PAGE REDESIGN ---- */
+.packages-hero {
+  background: var(--cream);
+  padding: 10rem 5% 4rem;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+.packages-hero .section-title {
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+}
+.packages-hero p {
+  font-size: 1rem; color: var(--grey);
+  font-weight: 300; line-height: 1.9;
+  max-width: 480px; margin: 1.5rem auto 0;
+}
+
+/* ---- PACKAGE BLOCKS ---- */
+.pkg-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 600px;
+  overflow: hidden;
+}
+.pkg-block .pkg-block-photo { order: 1; }
+.pkg-block .pkg-block-text { order: 2; }
+.pkg-block.reverse .pkg-block-photo { order: 2; }
+.pkg-block.reverse .pkg-block-text { order: 1; }
+.pkg-block-photo {
+  position: relative;
+  overflow: hidden;
+  background: var(--blush-light);
+  min-height: 500px;
+}
+
+.pkg-block-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s ease;
+  filter: brightness(0.92);
+}
+
+.pkg-block:hover .pkg-block-photo img {
+  transform: scale(1.03);
+}
+
+.pkg-photo-placeholder {
+  width: 100%; height: 100%;
+  min-height: 500px;
+  background: linear-gradient(135deg, var(--blush-light), var(--blush));
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.75rem; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--grey-light);
+}
+
+.pkg-block-text {
+  padding: 5rem 4rem;
+  display: flex; flex-direction: column;
+  justify-content: center;
+  background: var(--white);
+}
+
+.pkg-block:nth-child(even) .pkg-block-text {
+  background: var(--cream);
+}
+
+.pkg-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5rem; font-weight: 300;
+  color: var(--blush); line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.pkg-block-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 300; color: var(--black);
+  margin-bottom: 0.3rem; line-height: 1.1;
+}
+
+.pkg-block-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem; font-weight: 300;
+  color: var(--gold); margin-bottom: 1.8rem;
+}
+
+.pkg-block-tagline {
+  font-size: 0.62rem; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--gold);
+  font-weight: 500; margin-bottom: 1rem;
+}
+
+.pkg-block-divider {
+  width: 40px; height: 1px;
+  background: var(--gold); opacity: 0.5;
+  margin-bottom: 1.8rem;
+}
+
+.pkg-block-desc {
+  font-size: 0.95rem; font-weight: 300;
+  color: var(--grey); line-height: 1.9;
+  margin-bottom: 2rem;
+}
+
+.pkg-block-features {
+  list-style: none;
+  margin-bottom: 2.5rem;
+}
+
+.pkg-block-features li {
+  display: flex; align-items: flex-start; gap: 0.8rem;
+  font-size: 0.82rem; font-weight: 300;
+  color: var(--grey); line-height: 1.6;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(184,146,74,0.1);
+}
+.pkg-block-features li:last-child { border-bottom: none; }
+.pkg-block-features li::before {
+  content: '—';
+  color: var(--gold); font-size: 0.7rem;
+  flex-shrink: 0; margin-top: 0.15rem;
+}
+
+.pkg-note-small {
+  font-size: 0.72rem; font-style: italic;
+  color: var(--grey-light); margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.pkg-block-badge {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--white);
+  font-size: 0.55rem; letter-spacing: 0.22em;
+  text-transform: uppercase; font-weight: 500;
+  padding: 0.3rem 1rem;
+  margin-bottom: 1.2rem;
+  align-self: flex-start;
+}
+
+/* SDE note */
+.sde-note {
+  background: var(--black);
+  padding: 5rem 5%;
+  text-align: center;
+}
+.sde-note-inner { max-width: 700px; margin: 0 auto; }
+.sde-note h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 300; color: var(--white);
+  margin-bottom: 1rem;
+}
+.sde-note h3 em { color: var(--gold-light); font-style: italic; }
+.sde-note p {
+  font-size: 0.9rem; font-weight: 300;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.9;
+}
+
+/* CTA footer */
+.pkg-footer {
+  background: var(--cream);
+  padding: 6rem 5%;
+  text-align: center;
+}
+.pkg-footer .section-title { margin-bottom: 1rem; }
+.pkg-footer p {
+  font-size: 0.9rem; color: var(--grey);
+  font-weight: 300; line-height: 1.9;
+  max-width: 500px; margin: 0 auto 2.5rem;
+}
+.pkg-footer-btns {
+  display: flex; gap: 1rem;
+  justify-content: center; flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+  .pkg-block { grid-template-columns: 1fr; min-height: auto; }
+  .pkg-block:nth-child(odd) .pkg-block-photo,
+  .pkg-block:nth-child(even) .pkg-block-photo { order: 1; min-height: 300px; }
+  .pkg-block:nth-child(odd) .pkg-block-text,
+  .pkg-block:nth-child(even) .pkg-block-text { order: 2; padding: 3rem 2rem; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-dot"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">CNP<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="packages.html">Packages</a></li>
+    <li><a href="index.html#works">Works</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#about" onclick="toggleMenu()">About</a>
+  <a href="packages.html" onclick="toggleMenu()">Packages</a>
+  <a href="index.html#works" onclick="toggleMenu()">Works</a>
+  <a href="index.html#contact" onclick="toggleMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<div class="packages-hero">
+  <a href="index.html" class="back-btn">← Back to Home</a>
+  <p class="section-label">Pricing</p>
+  <h1 class="section-title">Your day,<br><em>your story</em></h1>
+  <p>Every couple deserves a film that makes them cry happy tears years from now. Choose the package that fits your day — I'll take care of the rest.</p>
+</div>
+
+<!-- PACKAGE 1 — ESSENTIAL -->
+<div class="pkg-block">
+  <div class="pkg-block-photo">
+    <div class="pkg-photo-placeholder">Add your photo here</div>
+    <!-- Replace with: <img src="your-photo.jpg" alt="Essential Package"> -->
+  </div>
+  <div class="pkg-block-text">
+    <span class="pkg-number">01</span>
+    <p class="pkg-block-tagline">1 Camera Operator</p>
+    <h2 class="pkg-block-name">The Essential</h2>
+    <p class="pkg-block-price">£850</p>
+    <div class="pkg-block-divider"></div>
+    <p class="pkg-block-desc">You don't need the biggest package to have a beautiful film. The Essential captures everything that matters — the vows, the tears, the first kiss — in a clean, cinematic highlight that you'll watch again and again for the rest of your lives.</p>
+    <ul class="pkg-block-features">
+      <li>5–6 minute highlight film</li>
+      <li>1 short reel (30 sec – 1 min)</li>
+      <li>Speeches delivered uncut</li>
+      <li>Full ceremony coverage</li>
+      <li>Professional colour grade</li>
+      <li>Digital delivery</li>
+    </ul>
+    <a href="index.html#contact" class="btn btn-outline-dark" style="align-self:flex-start;">Book This Package</a>
+  </div>
+</div>
+
+<!-- PACKAGE 2 — PREMIUM -->
+<div class="pkg-block">
+  <div class="pkg-block-photo">
+    <div class="pkg-photo-placeholder">Add your photo here</div>
+    <!-- Replace with: <img src="your-photo.jpg" alt="Premium Package"> -->
+  </div>
+  <div class="pkg-block-text">
+    <span class="pkg-block-badge">Most Popular</span>
+    <span class="pkg-number">02</span>
+    <p class="pkg-block-tagline">2 Camera Operators</p>
+    <h2 class="pkg-block-name">The Premium</h2>
+    <p class="pkg-block-price">£1,750</p>
+    <div class="pkg-block-divider"></div>
+    <p class="pkg-block-desc">Two cameras mean nothing goes unnoticed. The moment he sees you walking down the aisle. The look on your parents' faces. The laughter during speeches. The Premium captures it all from every angle — and turns it into a film that tells your full story, from the first nervous breath to the last song of the night.</p>
+    <ul class="pkg-block-features">
+      <li>1–2 minute cinematic trailer</li>
+      <li>15–20 minute full wedding film</li>
+      <li>Full day coverage</li>
+      <li>Multi-angle filming</li>
+      <li>Professional colour grade & sound mix</li>
+      <li>Digital delivery + private link</li>
+    </ul>
+    <a href="index.html#contact" class="btn btn-gold" style="align-self:flex-start;">Book This Package</a>
+  </div>
+</div>
+
+<!-- PACKAGE 3 — ELITE -->
+<div class="pkg-block">
+  <div class="pkg-block-photo">
+    <div class="pkg-photo-placeholder">Add your photo here</div>
+    <!-- Replace with: <img src="your-photo.jpg" alt="Elite Package"> -->
+  </div>
+  <div class="pkg-block-text">
+    <span class="pkg-number">03</span>
+    <p class="pkg-block-tagline">2–3 Camera Operators</p>
+    <h2 class="pkg-block-name">The Elite</h2>
+    <p class="pkg-block-price">£2,000</p>
+    <div class="pkg-block-divider"></div>
+    <p class="pkg-block-desc">Imagine watching your wedding film at your own reception. Your guests reliving the ceremony together — within hours of it happening. The Elite starts before the wedding with a free prenup film, and ends with your guests in tears watching your Same Day Edit screened live at the reception. This is the full experience.</p>
+    <ul class="pkg-block-features">
+      <li>Free prenup / engagement video (1–2 min)</li>
+      <li>Same Day Edit — screened at your reception</li>
+      <li>6–8 minute SDE highlight film</li>
+      <li>1–2 minute trailer delivered after the wedding</li>
+      <li>Speeches uncut</li>
+      <li>Full day coverage</li>
+      <li>Professional colour grade & sound mix</li>
+      <li>Digital delivery + private link</li>
+    </ul>
+    <p class="pkg-note-small">* Transport and travel expenses not included</p>
+    <a href="index.html#contact" class="btn btn-outline-dark" style="align-self:flex-start;">Book This Package</a>
+  </div>
+</div>
+
+<!-- SDE EXPLANATION -->
+<div class="sde-note">
+  <div class="sde-note-inner">
+    <h3>What is a <em>Same Day Edit?</em></h3>
+    <p>A Same Day Edit is one of the most magical additions to any wedding. Your footage is filmed and edited on the day itself — then screened for your guests during the evening reception. Everyone in the room relives the morning together. People laugh, cry, and cheer. It turns your reception into something truly unforgettable.</p>
+  </div>
+</div>
+
+<!-- CTA FOOTER -->
+<div class="pkg-footer">
+  <p class="section-label" style="display:block; margin-bottom:0.8rem;">Still not sure?</p>
+  <h2 class="section-title">Let's have<br><em>a chat</em></h2>
+  <p>No pressure, no hard sell. Just a friendly conversation about your day and how I can help make it last forever.</p>
+  <div class="pkg-footer-btns">
+    <a href="index.html#contact" class="btn btn-gold">Get In Touch</a>
+    <a href="index.html#works" class="btn btn-outline-dark">Watch My Films</a>
+    <a href="index.html" class="btn btn-outline-dark">← Back to Home</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Curly Ninja<span> Production</span></div>
+  <p class="footer-copy">© 2026 Herwin Cabo · Curly Ninja Production · Watford, England</p>
+  <div class="footer-socials">
+    <a href="https://www.facebook.com/CurlyNinjaProduction" target="_blank">Facebook</a>
+    <a href="https://www.instagram.com/curlyninjavisuals/" target="_blank">Instagram</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

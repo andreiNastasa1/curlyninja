@@ -3,34 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Curly Ninja Production | Herwin Cabo</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600;700&family=Italiana&display=swap" rel="stylesheet">
+<title>Curly Ninja Production | Wedding & Events Videography</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-
 </head>
-
 <body>
 
-<!-- CUSTOM CURSOR -->
+<!-- CURSOR -->
 <div id="cursor"></div>
 <div id="cursor-dot"></div>
 
 <!-- PRELOADER -->
 <div id="preloader">
   <div class="pre-logo">
-    <span>CURLY</span>&nbsp;<span>NINJA</span>&nbsp;<span>PRODUCTION</span>
+    <span>Curly</span>&nbsp;<span>Ninja</span>&nbsp;<span>Production</span>
   </div>
+  <p class="pre-tagline">Wedding & Events Videography</p>
   <div class="pre-bar"></div>
 </div>
 
 <!-- NAV -->
 <nav id="navbar">
-  <a href="#hero" class="nav-logo">CNP<span>.</span></a>
- <ul class="nav-links">
-  <li><a href="#about"><span>About</span><span>About</span></a></li>
-  <li><a href="#services"><span>Services</span><span>Services</span></a></li>
-  <li><a href="#works"><span>Works</span><span>Works</span></a></li>
-  <li><a href="#contact"><span>Contact</span><span>Contact</span></a></li>
+  <a href="#hero" class="nav-logo">Herwin Cabo<span>.</span></a>
+  <ul class="nav-links">
+  <li><a href="#about">About</a></li>
+  <li><a href="packages.html">Packages</a></li>
+  <li><a href="#works">Works</a></li>
+  <li><a href="#contact">Contact</a></li>
 </ul>
   <div class="hamburger" id="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
@@ -39,41 +38,20 @@
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="#about" onclick="toggleMenu()">About</a>
-  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="packages.html" onclick="toggleMenu()">Packages</a>
   <a href="#works" onclick="toggleMenu()">Works</a>
   <a href="#contact" onclick="toggleMenu()">Contact</a>
 </div>
 
 <!-- HERO -->
 <section id="hero">
-  <!-- Replace src with your actual video file path -->
   <video id="hero-video" autoplay muted loop playsinline>
-    <source src="notenough.mp4" type="video/mp4">
+    <source src="videoplayback.mp4" type="video/mp4">
   </video>
-
   <div class="hero-bg-placeholder" id="heroBg"></div>
-  <div class="shutter-lines"></div>
   <div class="hero-overlay"></div>
+  <div class="video-play-btn" id="playBtn" onclick="toggleVideo()"></div>
 
-  <div class="video-play-btn" id="playBtn" onclick="toggleVideo()" title="Play / Pause"></div>
-
-  <div class="hero-content">
-    <p class="hero-tagline">Watford, England &nbsp;·&nbsp; Videographer & Filmmaker</p>
-    <h1 class="hero-title">Curly Ninja<br><em>Production</em></h1>
-    <p class="hero-sub">Capturing stories that move people. Cinematic video production with an edge — from commercial shoots to personal projects.</p>
-    <div class="hero-cta">
-      <a href="#works" class="btn btn-gold">View My Work</a>
-      <a href="#contact" class="btn btn-outline">Get In Touch</a>
-      <a href="https://www.facebook.com/herwincabo123" target="_blank" class="btn btn-facebook">
-  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#1877F2">
-    <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
-  </svg>
-  Facebook
-</a>
-  
-</a>
-    </div>
-  </div>
 
   <div class="scroll-indicator">
     <div class="scroll-line"></div>
@@ -82,28 +60,57 @@
 </section>
 
 <!-- ABOUT -->
+
+
+
+<!-- PACKAGES PREVIEW -->
+<section id="packages-preview">
+  <div class="packages-preview-wrap">
+    <p class="section-label reveal">Pricing</p>
+    <h2 class="section-title reveal">Wedding<br><em>Packages</em></h2>
+    <div class="gold-line reveal" style="margin: 1.5rem auto 1.5rem;"></div>
+    <p class="packages-preview-sub reveal">From intimate ceremonies to grand celebrations — tailored packages to suit every couple and every budget. Transport and travel expenses not included.</p>
+
+    <div class="prices-list reveal">
+      <div class="price-row">
+        <span class="price-name">The Essential</span>
+        <span class="price-dots"></span>
+        <span class="price-amount">£850</span>
+      </div>
+      <div class="price-row">
+        <span class="price-name">The Premium</span>
+        <span class="price-dots"></span>
+        <span class="price-amount">£1,750</span>
+      </div>
+      <div class="price-row">
+        <span class="price-name">The Elite</span>
+        <span class="price-dots"></span>
+        <span class="price-amount">£2,000</span>
+      </div>
+    </div>
+
+    <a href="packages.html" class="btn btn-gold reveal">View Full Packages →</a>
+  </div>
+</section>
+</section>
 <section id="about">
   <div class="about-grid">
     <div class="about-image-wrap reveal">
-      <!-- Replace with Herwin's actual photo -->
       <div class="about-placeholder">
-        <img src="502583080_24349210114663920_271476031115085299_n.jpg" alt="Herwin sexy Cabo">
+        <img src="502583080_24349210114663920_271476031115085299_n.jpg" alt="Herwin Cabo">
       </div>
-    
     </div>
     <div class="about-text">
       <p class="section-label reveal">About Me</p>
       <h2 class="section-title reveal">Herwin<br><em>Cabo</em></h2>
       <div class="gold-line reveal"></div>
       <p class="reveal">I'm <strong>Herwin Cabo</strong> — a filmmaker and visual storyteller based in <strong>Watford, England</strong>. I don't just point a camera at the world. I chase the moments that disappear in seconds and make them last forever.</p>
-
-<p class="reveal reveal-delay-1">Every project starts with a feeling — the energy of a crowd, the silence before a performance, the light hitting just right. My job is to be ready when that moment arrives, and to capture it in a way that still gives you goosebumps years later.</p>
-
-<p class="reveal reveal-delay-2">From music videos to live events to personal stories — whatever the brief, the goal is always the same: <strong>create something that moves people.</strong></p>
+      <p class="reveal reveal-delay-1">Every project starts with a feeling — the energy of a crowd, the silence before a first dance, the light hitting just right. My job is to be ready when that moment arrives, and to capture it in a way that still gives you goosebumps years later.</p>
+      <p class="reveal reveal-delay-2">From weddings to 18th birthdays, corporate events to personal stories — whatever the occasion, the goal is always the same: <strong>create something that moves people.</strong></p>
       <div class="about-stats reveal reveal-delay-3">
         <div>
           <div class="stat-num" data-target="50">0</div>
-          <div class="stat-label">Projects Completed</div>
+          <div class="stat-label">Weddings Filmed</div>
         </div>
         <div>
           <div class="stat-num" data-target="5">0</div>
@@ -111,153 +118,77 @@
         </div>
         <div>
           <div class="stat-num" data-target="30">0</div>
-          <div class="stat-label">Happy Clients</div>
+          <div class="stat-label">Happy Couples</div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- SERVICES -->
-<section id="services">
-  <div class="services-header">
-    <p class="section-label reveal">What I Do</p>
-    <h2 class="section-title reveal">Services &<br><em>Expertise</em></h2>
-    <div class="gold-line reveal"></div>
-  </div>
-  <div class="services-grid">
-    <div class="service-card reveal">
-      <span class="service-number">01</span>
-      <span class="service-icon">🎬</span>
-      <h3 class="service-name">Video Production</h3>
-      <p class="service-desc">Full end-to-end video production — from concept and pre-production through to final delivery. High-quality cinematic results for any purpose.</p>
-    </div>
-    
-    <div class="service-card reveal reveal-delay-2">
-      <span class="service-number">02</span>
-      <span class="service-icon">📣</span>
-      <h3 class="service-name">Commercial & Brand</h3>
-      <p class="service-desc">High-impact commercial content for brands and businesses. Compelling storytelling that drives engagement and elevates your brand presence.</p>
-    </div>
-    <div class="service-card reveal reveal-delay-3">
-      <span class="service-number">03</span>
-      <span class="service-icon">🎉</span>
-      <h3 class="service-name">Event Coverage</h3>
-      <p class="service-desc">Dynamic, immersive coverage of live events — weddings, corporate events, performances, and more. Every highlight preserved in cinematic detail.</p>
-    </div>
-    <div class="service-card reveal reveal-delay-4">
-      <span class="service-number">04</span>
-      <span class="service-icon">✂️</span>
-      <h3 class="service-name">Post-Production</h3>
-      <p class="service-desc">Professional editing, colour grading, sound design, and motion graphics. Bringing raw footage to life with precision and style.</p>
-    </div>
-    
-  </div>
-</section>
-
 <!-- WORKS -->
 <section id="works">
   <div class="works-header">
     <p class="section-label reveal">Portfolio</p>
-    <h2 class="section-title reveal">Video &amp Photo<br><em>Showcase</em></h2>
+    <h2 class="section-title reveal">Films &<br><em>Memories</em></h2>
     <div class="gold-line reveal"></div>
   </div>
- <!-- VIDEOS -->
+
+  <!-- VIDEOS -->
+  <div class="video-carousel-wrap">
+    <button class="vc-arrow vc-prev" onclick="slideVideos(-1)">&#8592;</button>
+    <button class="vc-arrow vc-next" onclick="slideVideos(1)">&#8594;</button>
+    <div class="video-carousel" id="videoCarousel">
+
+      <div class="vc-item">
+        <div class="video-thumb">
+          <div class="video-thumb-overlay"></div>
+          <iframe src="https://www.youtube.com/embed/ART4ltmSY3Q?si=tNBoUEUlJzColmq4" allowfullscreen></iframe>
+        </div>
+        <div class="video-meta">
+          <span class="work-tag">Wedding Film</span>
+          <p class="video-title">Project Title One</p>
+        </div>
+      </div>
+
+      <div class="vc-item">
+        <div class="video-thumb">
+          <div class="video-thumb-overlay"></div>
+          <iframe src="https://www.youtube.com/embed/b3eu7Yxteyw?si=JTTpIeE1HdeKa_Ip" allowfullscreen></iframe>
+        </div>
+        <div class="video-meta">
+          <span class="work-tag">Highlight Reel</span>
+          <p class="video-title">Project Title Two</p>
+        </div>
+      </div>
+
+      <div class="vc-item">
+        <div class="video-thumb">
+          <div class="video-thumb-overlay"></div>
+          <iframe src="https://www.youtube.com/embed/ggA3BFmws3E?si=pam4oyhFA2Bwu8AR" allowfullscreen></iframe>
+        </div>
+        <div class="video-meta">
+          <span class="work-tag">18th Birthday</span>
+          <p class="video-title">Project Title Three</p>
+        </div>
+      </div>
+
+      <div class="vc-item">
+        <div class="video-thumb">
+          <div class="video-thumb-overlay"></div>
+          <iframe src="https://www.youtube.com/embed/Pm8E76Po_C0?si=B2gJ1QhepNMi2rXP" allowfullscreen></iframe>
+        </div>
+        <div class="video-meta">
+          <span class="work-tag">Same Day Edit</span>
+          <p class="video-title">Project Title Four</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   
- <div class="video-carousel-wrap">
-  <button class="vc-arrow vc-prev" onclick="slideVideos(-1)">&#8592;</button>
-  <button class="vc-arrow vc-next" onclick="slideVideos(1)">&#8594;</button>
-
-  <div class="video-carousel" id="videoCarousel">
-
-  <div class="vc-item">
-    
-  <div class="video-thumb">
-     <div class="video-thumb-overlay"></div> 
-    <iframe src="https://www.youtube.com/embed/ART4ltmSY3Q?si=tNBoUEUlJzColmq4" allowfullscreen></iframe>
-  </div>
-  <div class="video-meta">
-    <span class="work-tag">Music Video</span>
-    <p class="video-title">Project Title One</p>
-  </div>
-</div>
-
-    <div class="vc-item">
-      <div class="video-thumb">
-         <div class="video-thumb-overlay"></div> 
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/b3eu7Yxteyw?si=JTTpIeE1HdeKa_Ip" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
-      <div class="video-meta">
-        <span class="work-tag">Commercial</span>
-        <p class="video-title">Project Title Two</p>
-      </div>
-    </div>
-
-    <div class="vc-item">
-      <div class="video-thumb">
-         <div class="video-thumb-overlay"></div> 
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/ggA3BFmws3E?si=pam4oyhFA2Bwu8AR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
-      <div class="video-meta">
-        <span class="work-tag">Event</span>
-        <p class="video-title">Project Title Three</p>
-      </div>
-    </div>
-
-    <div class="vc-item">
-      <div class="video-thumb">
-         <div class="video-thumb-overlay"></div> 
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/Pm8E76Po_C0?si=B2gJ1QhepNMi2rXP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
-      <div class="video-meta">
-        <span class="work-tag">Documentary</span>
-        <p class="video-title">Project Title Four</p>
-      </div>
-    </div>
-
-  </div>
-</div>
-  <!-- PHOTOS -->
-  <div class="works-panel" id="panel-photos">
-  <div class="photo-grid">
-    <div class="work-item">
-      <img src="photo2.png" alt="Project 1">
-      <div class="work-overlay">
-        <span class="work-tag">Portrait</span>
-        <h3 class="work-title">Project Title</h3>
-      </div>
-    </div>
-    <div class="work-item">
-      <img src="photo3.png" alt="Project 2">
-      <div class="work-overlay">
-        <span class="work-tag">Event</span>
-        <h3 class="work-title">Project Title</h3>
-      </div>
-    </div>
-    <div class="work-item">
-      <img src="photo4.png" alt="Project 3">
-      <div class="work-overlay">
-        <span class="work-tag">Commercial</span>
-        <h3 class="work-title">Project Title</h3>
-      </div>
-    </div>
-    <div class="work-item">
-      <img src="photo5.jpg" alt="Sunrise" >
-      <div class="work-overlay">
-        <span class="work-tag">Documentary</span>
-        <h3 class="work-title">Project Title</h3>
-      </div>
-    </div>
-   
-    </div>
-  </div>
-</div>
-
- 
-
   <!-- BUTTON -->
   <div class="works-more reveal">
-    <a href="portfolio.html" class="btn btn-outline">View Full Portfolio →</a>
+    <a href="portfolio.html" class="btn btn-outline-dark">View Full Portfolio →</a>
   </div>
 </section>
 
@@ -268,7 +199,7 @@
       <p class="section-label reveal">Let's Talk</p>
       <h2 class="section-title reveal">Get In<br><em>Touch</em></h2>
       <div class="gold-line reveal"></div>
-      <p class="reveal">Ready to bring your vision to life? Whether you have a clear brief or just a rough idea, I'd love to hear from you. Based in Watford, available for projects across the UK and internationally.</p>
+      <p class="reveal">Ready to have your special day captured forever? Whether you have a clear brief or just a date in mind, I'd love to hear from you. Based in Watford, available across the UK.</p>
       <div class="contact-detail reveal reveal-delay-1">
         <span class="contact-detail-icon">📍</span>
         <div>
@@ -280,7 +211,14 @@
         <span class="contact-detail-icon">📘</span>
         <div>
           <span class="contact-detail-label">Facebook</span>
-          <a href="https://www.facebook.com/CurlyNinjaProduction" target="_blank" class="contact-detail-val" style="color:var(--white);text-decoration:none;">Curly Ninja Production</a>
+          <a href="https://www.facebook.com/CurlyNinjaProduction" target="_blank" class="contact-detail-val" style="color:var(--black);text-decoration:none;">Curly Ninja Production</a>
+        </div>
+      </div>
+      <div class="contact-detail reveal reveal-delay-2">
+        <span class="contact-detail-icon">📷</span>
+        <div>
+          <span class="contact-detail-label">Instagram</span>
+          <a href="https://www.instagram.com/curlyninjavisuals/" target="_blank" class="contact-detail-val" style="color:var(--black);text-decoration:none;">@curlyninjavisuals</a>
         </div>
       </div>
       <div class="contact-detail reveal reveal-delay-3">
@@ -296,39 +234,38 @@
       <div class="form-row">
         <div class="form-group">
           <label for="name">Your Name</label>
-          <input type="text" id="name" name="name" placeholder="John Smith" required>
+          <input type="text" id="name" name="name" placeholder="Jane & John Smith" required>
         </div>
         <div class="form-group">
           <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="john@example.com" required>
+          <input type="email" id="email" name="email" placeholder="hello@example.com" required>
         </div>
       </div>
       <div class="form-group">
-        <label for="service">Service Interested In</label>
+        <label for="service">Type of Event</label>
         <select id="service" name="service">
-          <option value="">Select a service...</option>
-          <option>Video Production</option>
-          <option>Music Video</option>
-          <option>Commercial & Brand</option>
-          <option>Event Coverage</option>
-          <option>Post-Production</option>
-          <option>Social Media Content</option>
+          <option value="">Select your event...</option>
+          <option>Wedding</option>
+          <option>18th Birthday</option>
+          <option>Other Birthday / Party</option>
+          <option>Corporate Event</option>
+          <option>Engagement / Prenup</option>
           <option>Other</option>
         </select>
       </div>
       <div class="form-group">
-        <label for="subject">Subject</label>
-        <input type="text" id="subject" name="subject" placeholder="Project enquiry...">
+        <label for="subject">Event Date</label>
+        <input type="text" id="subject" name="subject" placeholder="e.g. 14th June 2026">
       </div>
       <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" placeholder="Tell me about your project — the more detail, the better..." required></textarea>
+        <label for="message">Tell Me About Your Day</label>
+        <textarea id="message" name="message" placeholder="Where is the venue? How many guests? Any special requests?" required></textarea>
       </div>
       <div class="form-submit">
         <button type="submit" class="btn btn-gold">Send Message</button>
       </div>
       <div class="form-success" id="formSuccess">
-        ✓ &nbsp;Message sent — I'll be in touch soon!
+        ✓ &nbsp;Message received — I'll be in touch very soon!
       </div>
     </form>
   </div>
@@ -339,11 +276,11 @@
   <div class="footer-logo">Curly Ninja<span> Production</span></div>
   <p class="footer-copy">© 2026 Herwin Cabo · Curly Ninja Production · Watford, England</p>
   <div class="footer-socials">
-    <a href="Thttps://www.facebook.com/herwincabo123" target="_blank">Facebook</a>
+    <a href="https://www.facebook.com/CurlyNinjaProduction" target="_blank">Facebook</a>
+    <a href="https://www.instagram.com/curlyninjavisuals/" target="_blank">Instagram</a>
     <a href="#contact">Contact</a>
   </div>
 </footer>
-
 
 <!-- VIDEO LIGHTBOX -->
 <div id="video-lightbox" class="lightbox">
@@ -361,22 +298,9 @@
     </div>
   </div>
 </div>
-<!-- LIGHTBOX -->
-<div id="lightbox" class="lightbox">
-  <div class="lightbox-overlay" onclick="closeLightbox()"></div>
-  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-  <button class="lightbox-arrow prev" onclick="changePhoto(-1)">&#8592;</button>
-  <button class="lightbox-arrow next" onclick="changePhoto(1)">&#8594;</button>
-  <div class="lightbox-content">
-    <img id="lightbox-img" src="" alt="">
-    <div class="lightbox-caption">
-      <span id="lightbox-tag" class="work-tag"></span>
-      <p id="lightbox-title"></p>
-      <span id="lightbox-counter"></span>
-    </div>
-  </div>
 
-</div>
+
+
 <script src="script.js"></script>
 </body>
 </html>

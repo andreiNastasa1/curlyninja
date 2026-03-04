@@ -1,6 +1,6 @@
 /* ============================
    CURLY NINJA PRODUCTION
-   script.js
+   script.js — Wedding Theme
 ============================ */
 
 /* ---- CURSOR ---- */
@@ -22,15 +22,15 @@ document.addEventListener('mousemove', e => {
   requestAnimationFrame(animDot);
 })();
 
-document.querySelectorAll('a, button, .btn, .work-item, .service-card').forEach(el => {
+document.querySelectorAll('a, button, .btn, .work-item, .pkg-card, .package-preview-card').forEach(el => {
   el.addEventListener('mouseenter', () => {
-    cursor.style.width = '44px';
-    cursor.style.height = '44px';
-    cursor.style.background = 'rgba(201,168,76,0.12)';
+    cursor.style.width = '40px';
+    cursor.style.height = '40px';
+    cursor.style.background = 'rgba(184,146,74,0.1)';
   });
   el.addEventListener('mouseleave', () => {
-    cursor.style.width = '22px';
-    cursor.style.height = '22px';
+    cursor.style.width = '20px';
+    cursor.style.height = '20px';
     cursor.style.background = 'transparent';
   });
 });
@@ -52,10 +52,14 @@ function toggleMenu() {
 /* ---- HERO VIDEO ---- */
 const video = document.getElementById('hero-video');
 const heroBg = document.getElementById('heroBg');
-video.addEventListener('loadeddata', () => { heroBg.style.display = 'none'; });
-video.addEventListener('error', () => { video.style.display = 'none'; });
+
+if (video) {
+  video.addEventListener('loadeddata', () => { heroBg.style.display = 'none'; });
+  video.addEventListener('error', () => { video.style.display = 'none'; });
+}
 
 function toggleVideo() {
+  if (!video) return;
   if (video.paused) video.play(); else video.pause();
 }
 
@@ -100,44 +104,6 @@ function submitForm(e) {
   }, 1200);
 }
 
-/* ---- PHOTO LIGHTBOX ---- */
-let lightboxPhotos = [];
-let lightboxIndex = 0;
-
-document.querySelectorAll('.photo-grid .work-item').forEach((item, i) => {
-  item.addEventListener('click', () => {
-    const allItems = document.querySelectorAll('.photo-grid .work-item');
-    lightboxPhotos = Array.from(allItems).map(el => ({
-      src: el.querySelector('img').src,
-      tag: el.querySelector('.work-tag')?.textContent || '',
-      title: el.querySelector('.work-title')?.textContent || ''
-    }));
-    lightboxIndex = i;
-    openLightbox();
-  });
-});
-
-function openLightbox() {
-  updateLightbox();
-  document.getElementById('lightbox').classList.add('open');
-}
-
-function closeLightbox() {
-  document.getElementById('lightbox').classList.remove('open');
-}
-
-function changePhoto(dir) {
-  lightboxIndex = (lightboxIndex + dir + lightboxPhotos.length) % lightboxPhotos.length;
-  updateLightbox();
-}
-
-function updateLightbox() {
-  const p = lightboxPhotos[lightboxIndex];
-  document.getElementById('lightbox-img').src = p.src;
-  document.getElementById('lightbox-tag').textContent = p.tag;
-  document.getElementById('lightbox-title').textContent = p.title;
-  document.getElementById('lightbox-counter').textContent = `${lightboxIndex + 1} / ${lightboxPhotos.length}`;
-}
 
 /* ---- VIDEO CAROUSEL ---- */
 let vcIndex = 0;
@@ -148,6 +114,7 @@ function getVcVisible() {
 
 function slideVideos(dir) {
   const carousel = document.getElementById('videoCarousel');
+  if (!carousel) return;
   const items = carousel.querySelectorAll('.vc-item');
   const max = items.length - getVcVisible();
   vcIndex = Math.max(0, Math.min(vcIndex + dir, max));
@@ -202,11 +169,11 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') { closeLightbox(); closeVideoLightbox(); }
   const lb = document.getElementById('lightbox');
   const vlb = document.getElementById('video-lightbox');
-  if (lb.classList.contains('open')) {
+  if (lb && lb.classList.contains('open')) {
     if (e.key === 'ArrowRight') changePhoto(1);
     if (e.key === 'ArrowLeft') changePhoto(-1);
   }
-  if (vlb.classList.contains('open')) {
+  if (vlb && vlb.classList.contains('open')) {
     if (e.key === 'ArrowRight') changeVideo(1);
     if (e.key === 'ArrowLeft') changeVideo(-1);
   }
@@ -214,10 +181,15 @@ document.addEventListener('keydown', e => {
 
 /* ---- LOAD ---- */
 window.addEventListener('load', () => {
-  setTimeout(() => {
-    document.getElementById('preloader').classList.add('hide');
-  }, 2000);
+  // Preloader
+  const preloader = document.getElementById('preloader');
+  if (preloader) {
+    setTimeout(() => {
+      preloader.classList.add('hide');
+    }, 2000);
+  }
 
+  // Carousel dots
   const carousel = document.getElementById('videoCarousel');
   if (!carousel) return;
   const items = carousel.querySelectorAll('.vc-item');
@@ -234,3 +206,48 @@ window.addEventListener('load', () => {
 });
 
 window.addEventListener('resize', () => slideVideos(0));
+
+/* ---- HERO IDLE ---- */
+let idleTimer;
+const heroEl = document.getElementById('hero');
+
+function startIdleTimer() {
+  if (!heroEl || !video) return;
+  clearTimeout(idleTimer);
+  heroEl.classList.remove('hero-idle');
+  idleTimer = setTimeout(() => {
+    if (!video.paused) {
+      heroEl.classList.add('hero-idle');
+    }
+  }, 7000);
+}
+
+document.addEventListener('mousemove', startIdleTimer);
+
+if (video) {
+  video.addEventListener('play', startIdleTimer);
+  video.addEventListener('pause', () => {
+    clearTimeout(idleTimer);
+    if (heroEl) heroEl.classList.remove('hero-idle');
+  });
+}
+
+// hidden nav
+function startIdleTimer() {
+  if (!heroEl || !video) return;
+  clearTimeout(idleTimer);
+  heroEl.classList.remove('hero-idle');
+  document.getElementById('navbar').style.opacity = '1';
+  idleTimer = setTimeout(() => {
+    if (!video.paused) {
+      heroEl.classList.add('hero-idle');
+      document.getElementById('navbar').style.opacity = '0';
+    }
+  }, 7000);
+}
+
+video.addEventListener('pause', () => {
+  clearTimeout(idleTimer);
+  if (heroEl) heroEl.classList.remove('hero-idle');
+  document.getElementById('navbar').style.opacity = '1';
+});
