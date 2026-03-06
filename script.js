@@ -1,22 +1,7 @@
 /* ============================
-   CURLY NINJA PRODUCTION
-   script.js — Wedding Theme
+   HERWIN CABO PRODUCTION
+   script.js
 ============================ */
-
-
-
-document.querySelectorAll('a, button, .btn, .work-item, .pkg-card, .package-preview-card').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    cursor.style.width = '40px';
-    cursor.style.height = '40px';
-    cursor.style.background = 'rgba(184,146,74,0.1)';
-  });
-  el.addEventListener('mouseleave', () => {
-    cursor.style.width = '20px';
-    cursor.style.height = '20px';
-    cursor.style.background = 'transparent';
-  });
-});
 
 /* ---- NAV SCROLL ---- */
 window.addEventListener('scroll', () => {
@@ -36,7 +21,7 @@ function toggleMenu() {
 const video = document.getElementById('hero-video');
 const heroBg = document.getElementById('heroBg');
 
-if (video) {
+if (video && heroBg) {
   video.addEventListener('loadeddata', () => { heroBg.style.display = 'none'; });
   video.addEventListener('error', () => { video.style.display = 'none'; });
 }
@@ -80,13 +65,13 @@ function submitForm(e) {
   btn.textContent = 'Sending...';
   btn.disabled = true;
   setTimeout(() => {
-    document.getElementById('formSuccess').style.display = 'block';
+    const success = document.getElementById('formSuccess');
+    if (success) success.style.display = 'block';
     e.target.reset();
     btn.textContent = 'Send Message';
     btn.disabled = false;
   }, 1200);
 }
-
 
 /* ---- VIDEO CAROUSEL ---- */
 let vcIndex = 0;
@@ -149,13 +134,8 @@ function closeVideoLightbox() {
 
 /* ---- KEYBOARD ---- */
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') { closeLightbox(); closeVideoLightbox(); }
-  const lb = document.getElementById('lightbox');
+  if (e.key === 'Escape') { closeVideoLightbox(); }
   const vlb = document.getElementById('video-lightbox');
-  if (lb && lb.classList.contains('open')) {
-    if (e.key === 'ArrowRight') changePhoto(1);
-    if (e.key === 'ArrowLeft') changePhoto(-1);
-  }
   if (vlb && vlb.classList.contains('open')) {
     if (e.key === 'ArrowRight') changeVideo(1);
     if (e.key === 'ArrowLeft') changeVideo(-1);
@@ -164,7 +144,6 @@ document.addEventListener('keydown', e => {
 
 /* ---- LOAD ---- */
 window.addEventListener('load', () => {
-  // Preloader
   const preloader = document.getElementById('preloader');
   if (preloader) {
     setTimeout(() => {
@@ -172,7 +151,6 @@ window.addEventListener('load', () => {
     }, 2000);
   }
 
-  // Carousel dots
   const carousel = document.getElementById('videoCarousel');
   if (!carousel) return;
   const items = carousel.querySelectorAll('.vc-item');
@@ -193,14 +171,17 @@ window.addEventListener('resize', () => slideVideos(0));
 /* ---- HERO IDLE ---- */
 let idleTimer;
 const heroEl = document.getElementById('hero');
+const navbar = document.getElementById('navbar');
 
 function startIdleTimer() {
   if (!heroEl || !video) return;
   clearTimeout(idleTimer);
   heroEl.classList.remove('hero-idle');
+  if (navbar) navbar.style.opacity = '1';
   idleTimer = setTimeout(() => {
     if (!video.paused) {
       heroEl.classList.add('hero-idle');
+      if (navbar) navbar.style.opacity = '0';
     }
   }, 7000);
 }
@@ -212,25 +193,6 @@ if (video) {
   video.addEventListener('pause', () => {
     clearTimeout(idleTimer);
     if (heroEl) heroEl.classList.remove('hero-idle');
+    if (navbar) navbar.style.opacity = '1';
   });
 }
-
-// hidden nav
-function startIdleTimer() {
-  if (!heroEl || !video) return;
-  clearTimeout(idleTimer);
-  heroEl.classList.remove('hero-idle');
-  document.getElementById('navbar').style.opacity = '1';
-  idleTimer = setTimeout(() => {
-    if (!video.paused) {
-      heroEl.classList.add('hero-idle');
-      document.getElementById('navbar').style.opacity = '0';
-    }
-  }, 7000);
-}
-
-video.addEventListener('pause', () => {
-  clearTimeout(idleTimer);
-  if (heroEl) heroEl.classList.remove('hero-idle');
-  document.getElementById('navbar').style.opacity = '1';
-});
