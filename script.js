@@ -3,24 +3,7 @@
    script.js — Wedding Theme
 ============================ */
 
-/* ---- CURSOR ---- */
-const cursor = document.getElementById('cursor');
-const cursorDot = document.getElementById('cursor-dot');
-let mouseX = 0, mouseY = 0, dotX = 0, dotY = 0;
 
-document.addEventListener('mousemove', e => {
-  mouseX = e.clientX; mouseY = e.clientY;
-  cursor.style.left = mouseX + 'px';
-  cursor.style.top = mouseY + 'px';
-});
-
-(function animDot() {
-  dotX += (mouseX - dotX) * 0.15;
-  dotY += (mouseY - dotY) * 0.15;
-  cursorDot.style.left = dotX + 'px';
-  cursorDot.style.top = dotY + 'px';
-  requestAnimationFrame(animDot);
-})();
 
 document.querySelectorAll('a, button, .btn, .work-item, .pkg-card, .package-preview-card').forEach(el => {
   el.addEventListener('mouseenter', () => {

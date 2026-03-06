@@ -31,32 +31,11 @@ body {
   color: var(--black);
   font-family: 'Jost', sans-serif;
   overflow-x: hidden;
-  cursor: none;
+  cursor: auto;
 }
+/* CURSOR */
 
-/* ---- CUSTOM CURSOR ---- */
-#cursor {
-  position: fixed;
-  width: 20px; height: 20px;
-  border: 1.5px solid var(--gold);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99999;
-  transform: translate(-50%, -50%);
-  transition: width 0.25s, height 0.25s, background 0.25s, border-color 0.25s;
-}
-
-#cursor-dot {
-  position: fixed;
-  width: 4px; height: 4px;
-  background: var(--gold);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99999;
-  transform: translate(-50%, -50%);
-}
-
-/* ---- SCROLLBAR ---- */
+  /* ---- SCROLLBAR ---- */
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: var(--cream); }
 ::-webkit-scrollbar-thumb { background: var(--gold-light); }
